@@ -1,5 +1,14 @@
-name: Deploy on Pull Request
+name: PR Release
 on: [pull_request]
+
+
+env:
+  GH_PACKAGE_TOKEN: ${{ secrets.GH_PACKAGE_TOKEN }}
+
+permissions:
+  id-token: write
+  contents: read
+  checks: write
 
 jobs:
   deploy:
