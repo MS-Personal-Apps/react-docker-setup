@@ -32,4 +32,4 @@ jobs:
 
       - name: Deploy with Docker Compose
         run: |
-          ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ubuntu@${{ secrets.EC2_HOST }}
+          ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ubuntu@34.253.131.34
