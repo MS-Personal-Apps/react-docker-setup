@@ -1,0 +1,25 @@
+# version: '3'
+
+# services:
+#   web:
+#     image: your-registry-url/your-react-app-image:latest
+#     container_name: your-react-app-container
+#     restart: always
+#     ports:
+#       - "80:80"
+#     environment:
+#       - REACT_APP_API_URL=http://your-api-url # Replace with your API URL
+#     networks:
+#       - your-network
+
+# networks:
+#   your-network:
+#     driver: bridge
+version: '3'
+
+services:
+  web:
+    image: your-react-app-image:latest
+    ports:
+      - "80:80"
+    restart: always
