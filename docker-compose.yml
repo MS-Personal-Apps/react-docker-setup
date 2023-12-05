@@ -19,7 +19,7 @@ version: '3'
 
 services:
   web:
-    image: your-react-app-image:latest
+    image: krishaws/your-react-app-image:latest
     ports:
       - "80:80"
     restart: always
