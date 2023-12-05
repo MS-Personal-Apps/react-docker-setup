@@ -30,6 +30,13 @@ jobs:
           docker tag your-react-app-image ${{ secrets.DOCKER_REGISTRY_URL }}/your-react-app-image:latest
           docker push ${{ secrets.DOCKER_REGISTRY_URL }}/your-react-app-image:latest
 
+      # - name: Deploy with Docker Compose
+      #   run: |
+      #     ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ubuntu@34.135.212.11
       - name: Deploy with Docker Compose
-        run: |
-          ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ubuntu@34.253.131.34
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script:  docker-compose -f ./docker-compose.yml up -d
